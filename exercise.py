@@ -5,7 +5,7 @@ def  files(path):
    	listing = os.listdir(path)
         return listing
 def  filestring(line):
-     search=': N'
+     search="N"
      a=line.find(search)
      if a>=0:
 	 b=True
@@ -13,12 +13,13 @@ def  filestring(line):
 	 b=False
      return b;
 def  replace(line):
-     nline = line.replace(": N",": M")
+     nline = line.replace("N","M")
      return nline;		
 path='cleandata'
 filelist=files(path)
 for infile in filelist:
+	print "current file is: " + infile 
 	for inline in infile:
 		print filestring(inline)
 		print replace(inline) 
-        print "current file is: " + infile   
+         
