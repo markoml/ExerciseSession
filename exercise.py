@@ -17,9 +17,12 @@ def  replace(line):
      return nline;		
 path='cleandata'
 filelist=files(path)
-for infile in filelist:
+for infile in glob.glob(os.path.join(path, '*.*')):
 	print "current file is: " + infile 
-	for inline in infile:
-		print filestring(inline)
-		print replace(inline) 
+	f=open(infile,'r')
+	lines = f.readlines()
+	f.close()
+	for i in range(len(lines)):
+		print filestring(lines[i])
+		print replace(lines[i]) 
          
